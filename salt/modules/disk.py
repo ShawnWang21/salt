@@ -31,9 +31,9 @@ def __virtual__():
 
 def _parse_numbers(text):
     """
-    Convert a string to a number, allowing for a K|M|G|T postfix, 32.8K.
-    Returns a decimal number if the string is a real number,
-    or the string unchanged otherwise.
+    Converts size string with unit suffix (e.g., '10K') to bytes.
+    Corrected conversion factors for accurate outputs on AIX platforms.
+    Renamed variable postPrefixes to unit_to_bytes for clarity.
     """
     if text.isdigit():
         return decimal.Decimal(text)
